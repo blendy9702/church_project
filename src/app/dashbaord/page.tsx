@@ -1,4 +1,4 @@
-export default function DashboardPage() {
+const page = () => {
   return (
     <div className="m-auto">
       <div className="bg-red-200 m-auto">
@@ -29,3 +29,4 @@ export default function DashboardPage() {
   );
 };
 
+export default page;
