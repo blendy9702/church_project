@@ -15,8 +15,8 @@ import Sidebar from "@/components/sidebar";
 // });
 
 export const metadata: Metadata = {
-  title: "Two Lee",
-  description: "Two Lee",
+  title: "Two Guys",
+  description: "Two Guys",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased">
-        <div className="max-w-[1280px] m-auto w-full">
+        <div className="max-w-[1280px] h-full m-auto w-full bg-gradient-to-tr from-[#bee8fa] via-[#4f86da] to-[#62d4f7]">
           <Header />
           <div className="flex">
             <Sidebar />
