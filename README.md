@@ -7,3 +7,4 @@
 - TypeScript
 - Shadcn UI
 - React Icons
+- anime.js

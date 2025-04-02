@@ -1,3 +1,7 @@
+"use client";
+
+import Counting from "@/components/anime/animes";
+
 const page = () => {
   const statusData = [1, 2, 3, 4];
   const chartData = [1, 2, 3, 4];
@@ -12,17 +16,40 @@ const page = () => {
                 key={index}
                 className="bg-white/70 w-[230px] h-[70px] rounded-[12px]"
               >
-                <div className="flex justify-center items-center p-1">
-                  <div className="text-[#1e1e1e] text-[16px] font-bold">
+                <div className="p-2">
+                  <div className="flex text-[#1e1e1e] text-[16px] font-bold">
                     {index === 0 && (
-                      <div>
-                        <div>대시보드 1</div>
-                        <div>기타 정보</div>
+                      <div className="">
+                        <div className="text-[16px]">대시보드 1</div>
+                        <div className="flex justify-center items-center w-full">
+                          <Counting targetDelay={200} />
+                        </div>
                       </div>
                     )}
-                    {index === 1 && <div>대시보드 2</div>}
-                    {index === 2 && <div>대시보드 3</div>}
-                    {index === 3 && <div>대시보드 4</div>}
+                    {index === 1 && (
+                      <div>
+                        <div>대시보드 2</div>
+                        <div className="flex justify-center items-center w-full">
+                          <Counting targetDelay={300} />
+                        </div>
+                      </div>
+                    )}
+                    {index === 2 && (
+                      <div>
+                        <div>대시보드 3</div>
+                        <div className="flex justify-center items-center w-full">
+                          <Counting targetDelay={500} />
+                        </div>
+                      </div>
+                    )}
+                    {index === 3 && (
+                      <div>
+                        <div>대시보드 4</div>
+                        <div className="flex justify-center items-center w-full">
+                          <Counting targetDelay={600} />
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -15,7 +15,7 @@ export default function Sidebar() {
             className="flex justify-center items-center gap-2 p-3 cursor-pointer hover:bg-black/20"
             onClick={() => router.push("/dashbaord")}
           >
-            <div className="text-[#1e1e1e] text-[16px] font-bold ">
+            <div className="text-[#1e1e1e] text-[16px] font-bold">
               <div>대시보드</div>
             </div>
           </div>

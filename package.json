@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/react": "^3.15.0",
     "@radix-ui/react-dialog": "^1.1.6",
+    "animejs": "^3.2.2",
     "axios": "^1.8.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,15 +27,16 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/animejs": "^3.1.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "prettier": "^3",
     "eslint-config-prettier": "^9",
-    "eslint-plugin-prettier": "^5"
+    "eslint-plugin-prettier": "^5",
+    "prettier": "^3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
