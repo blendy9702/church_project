@@ -1,6 +1,7 @@
 "use client";
 
 import Counting from "@/components/anime/animes";
+import ShadcnChart from "@/components/chart/charts";
 
 const page = () => {
   const statusData = [1, 2, 3, 4];
@@ -70,7 +71,9 @@ const page = () => {
             ))}
           </div>
           <div className="flex justify-center items-center gap-5 mb-5">
-            <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]"></div>
+            <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]">
+              <ShadcnChart />
+            </div>
             <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]"></div>
           </div>
         </div>

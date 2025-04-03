@@ -14,7 +14,7 @@ export default function Counting({ targetDelay }: CountingProps) {
       value: [0, 1000],
       round: 1,
       easing: "easeInOutSine",
-      duration: 3000,
+      duration: 1500,
       delay: targetDelay,
     });
   }, [targetDelay]);
