@@ -1,7 +1,11 @@
 "use client";
 
 import Counting from "@/components/anime/animes";
-import ShadcnChart from "@/components/chart/charts";
+import {
+  ChartBarLabel,
+  PieChartDonut,
+  ShadcnChart,
+} from "@/components/chart/charts";
 
 const page = () => {
   const statusData = [1, 2, 3, 4];
@@ -66,7 +70,20 @@ const page = () => {
                 key={index}
                 className="bg-white/70 w-[230px] h-[230px] rounded-[12px]"
               >
-                {/* item 사용해서 내용 렌더링 */}
+                {index === 0 && (
+                  <div className="">
+                    <div className="flex justify-center items-center w-full">
+                      <ChartBarLabel />
+                    </div>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div className="">
+                    <div className="flex justify-center items-center w-full">
+                      <PieChartDonut />
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -74,7 +91,9 @@ const page = () => {
             <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]">
               <ShadcnChart />
             </div>
-            <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]"></div>
+            <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px]">
+              {/* <CustomPieChart /> */}
+            </div>
           </div>
         </div>
       </div>
