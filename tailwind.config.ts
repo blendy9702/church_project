@@ -10,7 +10,7 @@ const config: Config = {
       },
     },
     screens: {
-      "lg-1220px": { max: "1220px" },
+      "max-lg1220px": { max: "1220px" },
     },
   },
   plugins: [],

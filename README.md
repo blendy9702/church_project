@@ -8,3 +8,4 @@
 - Shadcn UI
 - React Icons
 - anime.js
+- swiper

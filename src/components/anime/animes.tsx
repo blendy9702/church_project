@@ -30,7 +30,7 @@ export default function Counting({ targetDelay }: CountingProps) {
   }, [targetDelay]);
 
   return (
-    <div className="flex justify-center items-center text-[20px] font-medium">
+    <div className="flex justify-center items-center text-[14px] font-medium">
       <input
         className={`flex justify-center items-center w-full dom-attribute-demo-input-${targetDelay}`}
         defaultValue="0"

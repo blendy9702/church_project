@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="bg-gray-100/25">
       <div className="flex justify-between items-center h-[80px] mx-4">
-        <div className="text-[#1e1e1e] text-[32px] font-bold max-lg:hidden ">
+        <div className="text-[#1e1e1e] text-[32px] font-bold max-lg:hidden ml-10">
           <Link href="/">DASHBOARD</Link>
         </div>
         <div
