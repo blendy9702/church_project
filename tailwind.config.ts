@@ -9,6 +9,9 @@ const config: Config = {
         ring: "#1e1e1e",
       },
     },
+    screens: {
+      "lg-1220px": { max: "1220px" },
+    },
   },
   plugins: [],
 };

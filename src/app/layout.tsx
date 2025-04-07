@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased">
-        <div className="max-w-[1280px] h-full m-auto w-full bg-gradient-to-tr from-[#bee8fa] via-[#4f86da] to-[#62d4f7]">
+        <div className="h-full m-auto w-full bg-[#f5f5f5] ">
           <Header />
           <div className="flex">
             <Sidebar />

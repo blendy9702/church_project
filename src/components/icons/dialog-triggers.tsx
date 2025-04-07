@@ -13,7 +13,7 @@ export const BellIcon = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-lg">
+        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-[8px]">
           <Dialog.Title className="flex justify-center m-1 text-[#1e1e1e] text-[16px] font-bold">
             새로운 알림!
           </Dialog.Title>
@@ -39,7 +39,7 @@ export const GearIcon = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-lg">
+        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-[8px]">
           <Dialog.Title className="flex justify-center m-1 text-[#1e1e1e] text-[16px] font-bold">
             설정
           </Dialog.Title>
@@ -65,7 +65,7 @@ export const ProfileIcon = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg">
+        <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-[8px]">
           <Dialog.Title className="flex justify-center m-1 text-[#1e1e1e] text-[16px] font-bold">
             프로필
           </Dialog.Title>
