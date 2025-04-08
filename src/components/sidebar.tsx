@@ -2,15 +2,19 @@
 import { useRouter } from "next/navigation";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Sidebar() {
   const router = useRouter();
   const [isSampleTabOpen, setIsSampleTabOpen] = useState(false);
 
   return (
-    <div>
-      <div className="bg-gray-100/35 h-full w-[200px] max-lg:hidden">
+    <div className="fixed h-screen">
+      <div className="bg-gray-200/70 h-full w-[200px] max-lg:hidden">
         <div className="flex flex-col">
+          <div className="flex justify-center items-center text-[#1e1e1e] text-[28px] font-bold max-lg:hidden my-10">
+            <Link href="/">배고프다</Link>
+          </div>
           <div
             className="flex justify-center items-center gap-2 p-3 cursor-pointer hover:bg-black/20"
             onClick={() => router.push("/")}

@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang="ko">
       <body className="antialiased">
         <div className="m-auto w-full bg-[#f5f5f5]">
-          <Header />
-          <div className="flex">
-            <Sidebar />
+          <Sidebar />
+          <div className="flex flex-col lg:ml-[200px]">
+            <Header />
             <div className="flex-1">{children}</div>
           </div>
         </div>

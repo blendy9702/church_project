@@ -1,15 +1,15 @@
 "use client";
 
+import MdSidebar from "@/components/md-sidebar";
 import { Input } from "@/components/ui/input";
+import { useRef, useState } from "react";
+import { IoIosMenu, IoMdSearch } from "react-icons/io";
 import {
   BellIcon,
   GearIcon,
   ProfileIcon,
-} from "./icons/dialog-triggers";
-import Link from "next/link";
-import { IoIosMenu, IoMdSearch } from "react-icons/io";
-import { useRef, useState } from "react";
-import MdSidebar from "@/components/md-sidebar";
+} from "@/components/icons/dialog-triggers";
+import { FontAnime, TestBall } from "@/components/anime/animes";
 
 export default function Header() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -18,9 +18,6 @@ export default function Header() {
   return (
     <header className="bg-gray-100/25">
       <div className="flex justify-between items-center h-[80px] mx-4">
-        <div className="text-[#1e1e1e] text-[32px] font-bold max-lg:hidden ml-10">
-          <Link href="/">DASHBOARD</Link>
-        </div>
         <div
           className="lg:hidden text-[36px] cursor-pointer p-4"
           onClick={() => setSidebarOpen(!isSidebarOpen)}
@@ -30,6 +27,10 @@ export default function Header() {
         {isSidebarOpen && (
           <MdSidebar onClose={() => setSidebarOpen(false)} />
         )}
+        <div className="flex justify-center items-center max-lg:hidden">
+          <FontAnime />
+        </div>
+
         <div className="flex relative justify-center items-center">
           <Input
             className="w-[300px] h-[40px] placeholder:text-[#1e1e1e] text-[#1e1e1e] border-2 border-[#1e1e1e] rounded-full pr-10"
@@ -51,6 +52,7 @@ export default function Header() {
           />
         </div>
         <div className="flex gap-5">
+          <TestBall />
           <BellIcon />
           <GearIcon />
           <ProfileIcon />

@@ -1,8 +1,10 @@
-import Counting from "@/components/anime/animes";
 import {
   ChartBarLabel,
   CustomLineChart,
+  InteractiveChart,
+  LineChartLabel,
   MultipleLineChart,
+  RadialChart,
   ShadcnChart,
 } from "@/components/chart/charts";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Counting } from "@/components/anime/animes";
 
 export const MainCounts = () => {
   const statusData = [1, 2, 3, 4];
@@ -18,10 +21,10 @@ export const MainCounts = () => {
       <div className="flex justify-center items-center gap-5 mt-5">
         {statusData.map((item, index) => {
           const dashboardInfo = [
-            { title: "대시보드 1", delay: 200 },
-            { title: "대시보드 2", delay: 300 },
-            { title: "대시보드 3", delay: 500 },
-            { title: "대시보드 4", delay: 600 },
+            { title: "대시보드 1" },
+            { title: "대시보드 2" },
+            { title: "대시보드 3" },
+            { title: "대시보드 4" },
           ][index];
 
           return (
@@ -34,7 +37,7 @@ export const MainCounts = () => {
                   <div>
                     <div>{dashboardInfo.title}</div>
                     <div className="flex justify-center items-center w-full">
-                      <Counting targetDelay={dashboardInfo.delay} />
+                      <Counting dashboardId={index} />
                     </div>
                   </div>
                 </div>
@@ -58,7 +61,7 @@ export const MainCharts = () => {
           <MultipleLineChart />
         </div>
         <div className="bg-white/70 w-full rounded-[12px] shadow-sm">
-          <CustomLineChart />
+          <LineChartLabel />
         </div>
         <div className="bg-white/70 w-full rounded-[12px] shadow-sm">
           <MultipleLineChart />
@@ -128,7 +131,7 @@ export const MainBarLabel = () => {
             {index === 1 && (
               <div className="">
                 <div className="flex justify-center items-center w-full">
-                  <ChartBarLabel />
+                  <RadialChart />
                 </div>
               </div>
             )}
@@ -224,15 +227,47 @@ export const MainBarLabel = () => {
 export const MainShadcnChart = () => {
   return (
     <div className="flex justify-center items-center gap-5 mb-5">
-      <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px] shadow-sm max-md:hidden">
+      <div className="bg-white/70 w-full rounded-[12px] shadow-sm max-md:hidden">
         <ShadcnChart />
       </div>
-      <div className="bg-white/70 w-[480px] h-[230px] rounded-[12px] shadow-sm max-md:hidden">
+      <div className="bg-white/70 w-full rounded-[12px] shadow-sm max-md:hidden">
         <ShadcnChart />
       </div>
 
-      <div className="bg-white/70 w-full h-[230px] rounded-[12px] shadow-sm md:hidden">
+      {/* 모바일 스와이퍼 */}
+      <div className="md:hidden w-full">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          className="max-w-[768px]"
+          modules={[Navigation, Pagination]}
+          style={{ marginLeft: 0, paddingBottom: 30 }}
+        >
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <ShadcnChart />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <ShadcnChart />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+        {/* <div className="bg-white/70 w-full h-[230px] rounded-[12px] shadow-sm md:hidden">
         <ShadcnChart />
+      </div> */}
+      </div>
+    </div>
+  );
+};
+
+export const MainInteractiveChart = () => {
+  return (
+    <div className="flex justify-center items-center">
+      <div className="bg-white/70 w-full rounded-[12px] shadow-sm">
+        <InteractiveChart />
       </div>
     </div>
   );
