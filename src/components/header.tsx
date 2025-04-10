@@ -31,7 +31,7 @@ export default function Header() {
           <FontAnime />
         </div>
 
-        <div className="flex relative justify-center items-center">
+        <div className="max-sm:hidden flex relative justify-center items-center">
           <Input
             className="w-[300px] h-[40px] placeholder:text-[#1e1e1e] text-[#1e1e1e] border-2 border-[#1e1e1e] rounded-full pr-10"
             placeholder="검색"
@@ -51,7 +51,7 @@ export default function Header() {
             }}
           />
         </div>
-        <div className="flex gap-5">
+        <div className="max-xs:hidden flex gap-5">
           <TestBall />
           <BellIcon />
           <GearIcon />

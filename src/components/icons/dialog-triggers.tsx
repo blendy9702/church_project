@@ -32,7 +32,7 @@ export const BellIcon = () => {
 export const GearIcon = () => {
   return (
     <Dialog.Root>
-      <Dialog.Trigger>
+      <Dialog.Trigger className="z-50">
         <div>
           <FaGear className="text-[#1e1e1e] text-[24px] cursor-pointer" />
         </div>

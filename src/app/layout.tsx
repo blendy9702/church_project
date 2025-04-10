@@ -16,6 +16,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Two Guys",
   description: "Two Guys",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

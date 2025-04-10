@@ -2,6 +2,7 @@ import {
   ChartBarLabel,
   CustomLineChart,
   InteractiveChart,
+  InteractiveChartSM,
   LineChartLabel,
   MultipleLineChart,
   RadialChart,
@@ -19,32 +20,35 @@ export const MainCounts = () => {
   return (
     <div>
       <div className="flex justify-center items-center gap-5 mt-5">
-        {statusData.map((item, index) => {
-          const dashboardInfo = [
-            { title: "대시보드 1" },
-            { title: "대시보드 2" },
-            { title: "대시보드 3" },
-            { title: "대시보드 4" },
-          ][index];
+        {/* 데스크탑 */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 w-full">
+          {statusData.map((item, index) => {
+            const dashboardInfo = [
+              { title: "대시보드 1" },
+              { title: "대시보드 2" },
+              { title: "대시보드 3" },
+              { title: "대시보드 4" },
+            ][index];
 
-          return (
-            <div
-              key={index}
-              className="bg-white/70 rounded-[12px] shadow-sm w-full max-w-[315px]"
-            >
-              <div className="p-2">
-                <div className="flex text-[#1e1e1e] text-[16px] font-bold">
-                  <div>
-                    <div>{dashboardInfo.title}</div>
-                    <div className="flex justify-center items-center w-full">
-                      <Counting dashboardId={index} />
+            return (
+              <div
+                key={index}
+                className="bg-white/70 rounded-[12px] shadow-sm w-full"
+              >
+                <div className="p-2">
+                  <div className="flex text-[#1e1e1e] text-[16px] font-bold">
+                    <div>
+                      <div>{dashboardInfo.title}</div>
+                      <div className="flex justify-center items-center w-full">
+                        <Counting dashboardId={index} />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -81,10 +85,37 @@ export const MainCharts = () => {
       </div>
 
       {/* 모바일 스와이퍼 */}
-      <div className="md:hidden w-full">
+      <div className="max-sm:hidden md:hidden w-full">
         <Swiper
           spaceBetween={20}
           slidesPerView={2}
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
+          style={{ marginLeft: 0, paddingBottom: 5 }}
+        >
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <CustomLineChart />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <MultipleLineChart />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <CustomLineChart />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* 모바일 스와이퍼 2 */}
+      <div className="sm:hidden w-full">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
           pagination={{ clickable: true }}
           className="max-w-[768px]"
           modules={[Navigation, Pagination]}
@@ -194,10 +225,38 @@ export const MainBarLabel = () => {
 
       {/* md 파이차트 */}
       {/* 모바일 스와이퍼 */}
-      <div className="md:hidden w-full">
+      <div className="max-sm:hidden md:hidden w-full">
         <Swiper
           spaceBetween={20}
           slidesPerView={2}
+          pagination={{ clickable: true }}
+          className="max-w-[768px]"
+          modules={[Navigation, Pagination]}
+          style={{ marginLeft: 0, paddingBottom: 5 }}
+        >
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <ChartBarLabel />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <ChartBarLabel />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide style={{ maxWidth: "100%" }}>
+            <div className="bg-white/70 rounded-[12px] shadow-sm">
+              <ChartBarLabel />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* 모바일 스와이퍼 2 */}
+      <div className="sm:hidden w-full">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
           pagination={{ clickable: true }}
           className="max-w-[768px]"
           modules={[Navigation, Pagination]}
@@ -266,8 +325,11 @@ export const MainShadcnChart = () => {
 export const MainInteractiveChart = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-white/70 w-full rounded-[12px] shadow-sm">
+      <div className="max-sm:hidden bg-white/70 w-full rounded-[12px] shadow-sm">
         <InteractiveChart />
+      </div>
+      <div className="sm:hidden w-full">
+        <InteractiveChartSM />
       </div>
     </div>
   );
