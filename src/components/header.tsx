@@ -16,7 +16,7 @@ export default function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <header className="bg-gray-100/25">
+    <header className="bg-gray-100/25 max-lg:bg-gray-100 max-lg:fixed top-0 left-0 right-0 z-10">
       <div className="flex justify-between items-center h-[80px] mx-4">
         <div
           className="lg:hidden text-[36px] cursor-pointer p-4"
@@ -51,7 +51,7 @@ export default function Header() {
             }}
           />
         </div>
-        <div className="max-xs:hidden flex gap-5">
+        <div className="flex gap-5">
           <TestBall />
           <BellIcon />
           <GearIcon />

@@ -1,7 +1,8 @@
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
+import Footer from "@/components/footer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -33,8 +34,11 @@ export default function RootLayout({
           <Sidebar />
           <div className="flex flex-col lg:ml-[200px]">
             <Header />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 mb-[100px] max-lg:mt-[80px]">
+              {children}
+            </div>
           </div>
+          <Footer />
         </div>
       </body>
     </html>

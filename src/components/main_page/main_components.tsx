@@ -17,11 +17,12 @@ import { Counting } from "@/components/anime/animes";
 
 export const MainCounts = () => {
   const statusData = [1, 2, 3, 4];
+
   return (
     <div>
       <div className="flex justify-center items-center gap-5 mt-5">
         {/* 데스크탑 */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 w-full">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-4 gap-3 min-[480px]:gap-5 w-full">
           {statusData.map((item, index) => {
             const dashboardInfo = [
               { title: "대시보드 1" },
@@ -36,7 +37,7 @@ export const MainCounts = () => {
                 className="bg-white/70 rounded-[12px] shadow-sm w-full"
               >
                 <div className="p-2">
-                  <div className="flex text-[#1e1e1e] text-[16px] font-bold">
+                  <div className="flex max-[480px]:justify-center items-center text-[#1e1e1e] text-[16px] font-bold">
                     <div>
                       <div>{dashboardInfo.title}</div>
                       <div className="flex justify-center items-center w-full">
@@ -80,12 +81,15 @@ export const MainCharts = () => {
           <MultipleLineChart />
         </div>
         <div className="bg-white/70 w-full rounded-[12px] shadow-sm">
-          <CustomLineChart />
+          <LineChartLabel />
         </div>
       </div>
 
       {/* 모바일 스와이퍼 */}
-      <div className="max-sm:hidden md:hidden w-full">
+      <div
+        className="max-sm:hidden md:hidden w-full"
+        style={{ position: "relative", zIndex: 10 }}
+      >
         <Swiper
           spaceBetween={20}
           slidesPerView={2}
@@ -105,7 +109,7 @@ export const MainCharts = () => {
           </SwiperSlide>
           <SwiperSlide style={{ maxWidth: "100%" }}>
             <div className="bg-white/70 rounded-[12px] shadow-sm">
-              <CustomLineChart />
+              <LineChartLabel />
             </div>
           </SwiperSlide>
         </Swiper>
@@ -133,7 +137,7 @@ export const MainCharts = () => {
           </SwiperSlide>
           <SwiperSlide style={{ maxWidth: "100%" }}>
             <div className="bg-white/70 rounded-[12px] shadow-sm">
-              <CustomLineChart />
+              <LineChartLabel />
             </div>
           </SwiperSlide>
         </Swiper>
@@ -285,7 +289,7 @@ export const MainBarLabel = () => {
 
 export const MainShadcnChart = () => {
   return (
-    <div className="flex justify-center items-center gap-5 mb-5">
+    <div className="flex justify-center items-center gap-5">
       <div className="bg-white/70 w-full rounded-[12px] shadow-sm max-md:hidden">
         <ShadcnChart />
       </div>
@@ -301,7 +305,7 @@ export const MainShadcnChart = () => {
           pagination={{ clickable: true }}
           className="max-w-[768px]"
           modules={[Navigation, Pagination]}
-          style={{ marginLeft: 0, paddingBottom: 30 }}
+          style={{ marginLeft: 0, paddingBottom: 10 }}
         >
           <SwiperSlide style={{ maxWidth: "100%" }}>
             <div className="bg-white/70 rounded-[12px] shadow-sm">
