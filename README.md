@@ -7,5 +7,5 @@
 - TypeScript
 - Shadcn UI
 - React Icons
-- anime.js
+- anime.js (4.0.0ver)
 - swiper
