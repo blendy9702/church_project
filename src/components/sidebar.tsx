@@ -75,6 +75,15 @@ export default function Sidebar() {
               LOGIN
             </div>
           </div>
+          {/* 심심해서 만든 애플 */}
+          <div
+            className="flex justify-center items-center gap-2 p-3 cursor-pointer hover:bg-black/20"
+            onClick={() => router.push("/apple")}
+          >
+            <div className="text-[#1e1e1e] text-[16px] font-bold">
+              APPLE
+            </div>
+          </div>
         </div>
       </div>
     </div>
