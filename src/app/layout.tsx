@@ -1,25 +1,11 @@
-import Header from "@/components/header";
-import Sidebar from "@/components/sidebar";
 import type { Metadata } from "next";
-import "@/app/globals.css";
+import "./globals.css";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
-  title: "Two Guys",
-  description: "Two Guys",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: "개혁주의 프로젝트",
+  description: "개혁주의 프로젝트",
 };
 
 export default function RootLayout({
@@ -29,27 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-        }}
-      >
-        <main className="flex-1 w-full m-auto">
-          <div className="bg-[#f5f5f5]">
-            <Sidebar />
-            <div className="flex flex-col lg:ml-[200px]">
-              <Header />
-              <div className="flex-1 mb-[100px] max-lg:mt-[80px]">
-                {children}
-              </div>
-            </div>
-          </div>
-        </main>
-        <footer className="w-full">
-          <Footer />
-        </footer>
+      <body className={`antialiased flex flex-col min-h-screen`}>
+        <header className="fixed top-0 left-0 right-0 z-10">
+          <Header />
+        </header>
+        <div className="max-w-[1440px] m-auto mt-[56px] flex-grow">
+          <div className="w-[1200px] mx-auto">{children}</div>
+        </div>
+        <Footer />
       </body>
     </html>
   );
