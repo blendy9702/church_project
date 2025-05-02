@@ -3,13 +3,13 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar } from "swiper/modules";
 import SlideCard from "./slide_card";
+import { cardDummyData } from "@/data/dummyData";
 
 export function Section1() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const cardCount = 5;
 
   return (
     <div>
@@ -70,9 +70,14 @@ export function Section1() {
           }}
           className="max-w-[1000px]"
         >
-          {[...Array(cardCount)].map((_, index) => (
-            <SwiperSlide key={index}>
-              <SlideCard />
+          {cardDummyData.map((card) => (
+            <SwiperSlide key={card.id}>
+              <SlideCard
+                id={card.id}
+                title={card.title}
+                description={card.description}
+                image={card.image}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -86,7 +91,6 @@ export function Section2() {
   const nextRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const cardCount = 8;
 
   return (
     <div>
@@ -150,9 +154,14 @@ export function Section2() {
           }}
           className="max-w-[1000px]"
         >
-          {[...Array(cardCount)].map((_, index) => (
-            <SwiperSlide key={index}>
-              <SlideCard id={`slide-${index}`} />
+          {cardDummyData.map((card) => (
+            <SwiperSlide key={card.id}>
+              <SlideCard
+                id={card.id}
+                title={card.title}
+                description={card.description}
+                image={card.image}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
