@@ -1,10 +1,31 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node) &&
+        profileRef.current &&
+        !profileRef.current.contains(event.target as Node)
+      ) {
+        setModalOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="w-full bg-[#FBFBFC]">
       <div className="w-[1200px] mx-auto">
@@ -28,7 +49,7 @@ export default function Header() {
             </div>
           </div>
           <div>
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" ref={profileRef}>
               <Image
                 src="/images/profile.svg"
                 alt="profile"
@@ -38,7 +59,7 @@ export default function Header() {
                 onClick={() => setModalOpen(!isModalOpen)}
               />
             </div>
-            <div className="relative">
+            <div className="relative" ref={modalRef}>
               {isModalOpen && (
                 <div className="absolute top-2 right-0 w-[135px] bg-white border-1 border-[#E5E5E5] rounded-[10px]">
                   <div className="flex flex-col items-center justify-center">
