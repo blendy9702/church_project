@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "개혁주의 프로젝트",
-  description: "개혁주의 프로젝트",
+  title: "로그인 하기",
+  description: "로그인 페이지",
 };
 
 export default function AuthLayout({
@@ -10,5 +10,5 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return <div className="auth-layout">{children}</div>;
 }
