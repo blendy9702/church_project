@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <div className="w-full bg-[#FBFBFC]">
       <div className="w-[1200px] mx-auto">
@@ -24,15 +27,38 @@ export default function Header() {
               />
             </div>
           </div>
-          <button className="cursor-pointer">
-            <Image
-              src="/images/profile.svg"
-              alt="profile"
-              width={30}
-              height={30}
-              className="rounded-full object-cover"
-            />
-          </button>
+          <div>
+            <div className="cursor-pointer">
+              <Image
+                src="/images/profile.svg"
+                alt="profile"
+                width={30}
+                height={30}
+                className="rounded-full object-cover"
+                onClick={() => setModalOpen(!isModalOpen)}
+              />
+            </div>
+            <div className="relative">
+              {isModalOpen && (
+                <div className="absolute top-2 right-0 w-[135px] bg-white border-1 border-[#E5E5E5] rounded-[10px]">
+                  <div className="flex flex-col items-center justify-center">
+                    <div className="flex items-center justify-between my-2">
+                      <button className="cursor-pointer">_id_</button>
+                    </div>
+                    <div className="flex items-center justify-between my-2">
+                      <button className="cursor-pointer">아티클 관리</button>
+                    </div>
+                    <div className="flex items-center justify-between my-2">
+                      <button className="cursor-pointer">주석 관리</button>
+                    </div>
+                    <div className="flex items-center justify-between my-2">
+                      <button className="cursor-pointer">로그아웃</button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
