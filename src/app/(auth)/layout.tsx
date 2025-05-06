@@ -10,5 +10,9 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="auth-layout">{children}</div>;
+  return (
+    <div>
+      <div className="w-[1200px] mx-auto">{children}</div>
+    </div>
+  );
 }
