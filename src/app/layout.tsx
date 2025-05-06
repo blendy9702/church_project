@@ -1,7 +1,7 @@
+import "@/app/globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
   title: "개혁주의 프로젝트",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={`antialiased flex flex-col min-h-screen`}>
+      <body className="antialiased flex flex-col min-h-screen">
         <header className="fixed top-0 left-0 right-0 z-10">
           <Header />
         </header>
