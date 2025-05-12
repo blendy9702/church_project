@@ -20,12 +20,20 @@ export default function LoginPage() {
               placeholder="비밀번호를 입력하세요."
             />
           </div>
-          <button
-            type="submit"
-            className="w-full rounded-md bg-[#5FB995] px-4 py-2 text-white hover:bg-[#49af86] cursor-pointer"
-          >
-            로그인
-          </button>
+          <div className="flex flex-col gap-2">
+            <button
+              type="submit"
+              className="w-full rounded-md bg-[#5FB995] px-4 py-2 text-white hover:bg-[#49af86] cursor-pointer"
+            >
+              로그인
+            </button>
+            <button
+              type="submit"
+              className="w-full rounded-md bg-[#5FB995] px-4 py-2 text-white hover:bg-[#49af86] cursor-pointer"
+            >
+              회원가입
+            </button>
+          </div>
         </form>
       </div>
     </div>
