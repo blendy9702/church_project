@@ -23,9 +23,6 @@ export default function SignupPage() {
           <div className="mb-8">
             <div className="flex justify-between mb-1">
               <label className="block text-[#344054]">비밀번호</label>
-              <Link href="/login" className="text-[#5FB995]">
-                비밀번호 찾기
-              </Link>
             </div>
             <div className="relative">
               <input
@@ -48,9 +45,6 @@ export default function SignupPage() {
           <div className="mb-8">
             <div className="flex justify-between mb-1">
               <label className="block text-[#344054]">비밀번호 확인</label>
-              <Link href="/login" className="text-[#5FB995]">
-                비밀번호 찾기
-              </Link>
             </div>
             <div className="relative">
               <input
