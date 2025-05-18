@@ -6,13 +6,11 @@ export default function AnnotationPage() {
       <div className="flex flex-col justify-center py-3">
         <div className="flex justify-between items-center">
           <div className="text-[20px] font-[700] text-[#000000]">주석 관리</div>
-          <div>
-            <button className="bg-[#5FB995] text-white text-[16px] font-[700] px-5 py-1 rounded-full">
-              확인
-            </button>
-          </div>
+          <button className="bg-[#5FB995] text-white text-[16px] font-[700] px-5 py-1 rounded-full cursor-pointer">
+            확인
+          </button>
         </div>
-        <div className="flex flex-col bg-[#F5F5F5]">
+        <div className="flex flex-col bg-[#F5F5F5] mt-8">
           <div className="mx-auto w-[1000px]">
             <div className="relative flex my-3">
               <input
