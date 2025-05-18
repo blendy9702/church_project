@@ -1,4 +1,5 @@
 "use client";
+import { testuser } from "@/data/testuser";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
@@ -7,6 +8,7 @@ export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const profileRef = useRef<HTMLDivElement>(null);
+  const userId = testuser.id;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -63,17 +65,26 @@ export default function Header() {
               {isModalOpen && (
                 <div className="absolute top-2 right-0 w-[135px] bg-white border-1 border-[#E5E5E5] rounded-[10px]">
                   <div className="flex flex-col items-center justify-center">
-                    <div className="flex items-center justify-between my-2">
-                      <button className="cursor-pointer">_id_</button>
+                    <div className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]">
+                      <button className="cursor-pointer w-full">_id_</button>
                     </div>
-                    <div className="flex items-center justify-between my-2">
-                      <button className="cursor-pointer">아티클 관리</button>
+                    <div className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]">
+                      <button className="cursor-pointer w-full">
+                        아티클 관리
+                      </button>
                     </div>
-                    <div className="flex items-center justify-between my-2">
-                      <button className="cursor-pointer">주석 관리</button>
-                    </div>
-                    <div className="flex items-center justify-between my-2">
-                      <button className="cursor-pointer">로그아웃</button>
+                    <Link
+                      href={`/users/${userId}/annotation`}
+                      className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]"
+                    >
+                      <button className="cursor-pointer w-full">
+                        주석 관리
+                      </button>
+                    </Link>
+                    <div className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]">
+                      <button className="cursor-pointer w-full">
+                        로그아웃
+                      </button>
                     </div>
                   </div>
                 </div>
