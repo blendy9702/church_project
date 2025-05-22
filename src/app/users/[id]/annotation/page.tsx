@@ -1,3 +1,4 @@
+import { annotationDummyData } from "@/data/dummyData";
 import Image from "next/image";
 
 export default function AnnotationPage() {
@@ -27,6 +28,18 @@ export default function AnnotationPage() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
+          <div className="flex my-5">
+            {annotationDummyData.map((item) => (
+              <div key={item.id} className="flex gap-10 text-[14px]">
+                <span>{item.name}</span>
+                <span className="text-[#5FB995]">{item.location}</span>
+                <span>{item.correction}</span>
+                <span className="w-[300px] truncate">{item.content}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
