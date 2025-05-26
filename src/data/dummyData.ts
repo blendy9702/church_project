@@ -61,6 +61,6 @@ export const annotationDummyData = [
     name: "뱀",
     location: "인간의 타락",
     correction: "2025/05/22",
-    content: "창세기 3장 1절에서 뱀을 지칭하는 히브리 단어는 '나하쉬(נָחָשׁ)'입니다..",
+    content: "창세기 3장 1절에서 뱀을 지칭하는 히브리 단어는 '나하쉬(נָחָשׁ)'입니다.",
   },
 ];
