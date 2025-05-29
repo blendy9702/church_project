@@ -1,3 +1,4 @@
+import { Switch } from "@/components/ui/switch";
 import { annotationDummyData } from "@/data/dummyData";
 import Image from "next/image";
 
@@ -31,7 +32,7 @@ export default function AnnotationPage() {
           </div>
         </div>
         <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
-          <div className="flex my-5">
+          <div className="flex justify-between my-5">
             {annotationDummyData.map((item) => (
               <div key={item.id} className="flex gap-10 text-[14px]">
                 <span>{item.name}</span>
@@ -40,6 +41,9 @@ export default function AnnotationPage() {
                 <span className="w-[300px] truncate">{item.content}</span>
               </div>
             ))}
+            <div>
+              <Switch />
+            </div>
           </div>
         </div>
       </div>
