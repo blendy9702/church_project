@@ -1,6 +1,8 @@
 import { Switch } from "@/components/ui/switch";
 import { annotationDummyData } from "@/data/dummyData";
 import Image from "next/image";
+import { LuTrash2 } from "react-icons/lu";
+import { SlNote } from "react-icons/sl";
 
 export default function AnnotationPage() {
   return (
@@ -14,7 +16,7 @@ export default function AnnotationPage() {
         </div>
         <div className="flex flex-col bg-[#F5F5F5] mt-8">
           <div className="mx-auto w-[1000px]">
-            <div className="relative flex my-3">
+            <div className="relative flex flex-col gap-5 my-3">
               <input
                 type="text"
                 placeholder="주석 이름, 내용 검색"
@@ -28,22 +30,43 @@ export default function AnnotationPage() {
                   height={20}
                 />
               </div>
+              <div
+                className="grid gap-2 text-[14px] font-bold grid-cols-[120px_120px_1fr_1fr_120px_120px] items-center"
+              >
+                <span>주석 이름</span>
+                <span>주석 위치</span>
+                <span>최종 수정일</span>
+                <span>주석 내용</span>
+                <span>공개 여부</span>
+                <span>추가 동작</span>
+              </div>
             </div>
           </div>
         </div>
         <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
-          <div className="flex justify-between my-5">
+          <div className="flex flex-col justify-between my-5">
             {annotationDummyData.map((item) => (
-              <div key={item.id} className="flex gap-10 text-[14px]">
+              <div key={item.id} className="grid grid-cols-[70px_80px_1fr_1fr_100px_80px] gap-10 text-[14px] mx-5">
                 <span>{item.name}</span>
                 <span className="text-[#5FB995]">{item.location}</span>
                 <span>{item.correction}</span>
                 <span className="w-[300px] truncate">{item.content}</span>
+                <div>
+                  <Switch />
+                </div>
+                <div className="flex justify-center">
+                  <div className="flex gap-2">
+                  <button className="text-[#8D8D8D] text-[14px]">
+                    <SlNote />
+                  </button>
+                  <button className="text-[#A30D11] text-[14px]">
+                    <LuTrash2 />
+                  </button>
+                  
+                  </div>
+                </div>
               </div>
             ))}
-            <div>
-              <Switch />
-            </div>
           </div>
         </div>
       </div>
