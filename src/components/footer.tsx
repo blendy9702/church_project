@@ -29,6 +29,11 @@ export default function Footer() {
               로그인 하기
             </span>
           </Link>
+          <Link href="/test">
+            <span className="text-[#1e1e1e] text-lg font-bold">
+              테스트 하기
+            </span>
+          </Link>
         </div>
       </div>
     </div>

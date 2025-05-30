@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const authPaths = ["/login", "/signup"];
+const authPaths = ["/login", "/signup", "/test"];
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
