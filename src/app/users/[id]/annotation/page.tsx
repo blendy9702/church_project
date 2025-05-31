@@ -30,9 +30,7 @@ export default function AnnotationPage() {
                   height={20}
                 />
               </div>
-              <div
-                className="grid gap-2 text-[14px] font-bold grid-cols-[120px_120px_1fr_1fr_120px_120px] items-center"
-              >
+              <div className="grid text-[14px] font-bold grid-cols-[120px_120px_1fr_1fr_120px_60px] items-center">
                 <span>주석 이름</span>
                 <span>주석 위치</span>
                 <span>최종 수정일</span>
@@ -44,9 +42,12 @@ export default function AnnotationPage() {
           </div>
         </div>
         <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
-          <div className="flex flex-col justify-between my-5">
+          <div className="flex flex-col justify-between py-2">
             {annotationDummyData.map((item) => (
-              <div key={item.id} className="grid grid-cols-[70px_80px_1fr_1fr_100px_80px] gap-10 text-[14px] mx-5">
+              <div
+                key={item.id}
+                className="grid grid-cols-[95px_123px_180px_1fr_127px_20px] text-[14px] mx-5 my-2"
+              >
                 <span>{item.name}</span>
                 <span className="text-[#5FB995]">{item.location}</span>
                 <span>{item.correction}</span>
@@ -55,14 +56,13 @@ export default function AnnotationPage() {
                   <Switch />
                 </div>
                 <div className="flex justify-center">
-                  <div className="flex gap-2">
-                  <button className="text-[#8D8D8D] text-[14px]">
-                    <SlNote />
-                  </button>
-                  <button className="text-[#A30D11] text-[14px]">
-                    <LuTrash2 />
-                  </button>
-                  
+                  <div className="flex gap-3">
+                    <button className="text-[#8D8D8D] text-[20px] cursor-pointer">
+                      <SlNote />
+                    </button>
+                    <button className="text-[#A30D11] text-[20px] cursor-pointer">
+                      <LuTrash2 />
+                    </button>
                   </div>
                 </div>
               </div>
