@@ -1,10 +1,42 @@
+"use client";
+
 import { Switch } from "@/components/ui/switch";
 import { annotationDummyData } from "@/data/dummyData";
 import Image from "next/image";
 import { LuTrash2 } from "react-icons/lu";
 import { SlNote } from "react-icons/sl";
+import { useState } from "react";
+import { LuArrowDown, LuArrowUp } from "react-icons/lu";
 
 export default function AnnotationPage() {
+  const [sortConfig, setSortConfig] = useState<{
+    key: "name" | "correction";
+    direction: "asc" | "desc";
+  } | null>(null);
+
+  const handleSort = (key: "name" | "correction") => {
+    let direction: "asc" | "desc" = "asc";
+    if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === "asc"
+    ) {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const sortedData = [...annotationDummyData].sort((a, b) => {
+    if (!sortConfig) return 0;
+    if (a[sortConfig.key] < b[sortConfig.key]) {
+      return sortConfig.direction === "asc" ? -1 : 1;
+    }
+    if (a[sortConfig.key] > b[sortConfig.key]) {
+      return sortConfig.direction === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
   return (
     <div className="w-full max-w-[1200px]">
       <div className="flex flex-col justify-center py-3">
@@ -30,10 +62,30 @@ export default function AnnotationPage() {
                   height={20}
                 />
               </div>
-              <div className="grid text-[14px] font-bold grid-cols-[120px_120px_1fr_1fr_120px_60px] items-center">
-                <span>주석 이름</span>
+              <div className="grid text-[14px] font-bold grid-cols-[90px_160px_90px_1fr_140px_100px] place-items-center">
+                <button
+                  className="cursor-pointer flex items-center gap-1"
+                  onClick={() => handleSort("name")}
+                >
+                  주석 이름
+                  {sortConfig?.direction === "asc" ? (
+                    <LuArrowUp size={14} />
+                  ) : (
+                    <LuArrowDown size={14} />
+                  )}
+                </button>
                 <span>주석 위치</span>
-                <span>최종 수정일</span>
+                <button
+                  className="cursor-pointer flex items-center gap-1"
+                  onClick={() => handleSort("correction")}
+                >
+                  최종 수정일
+                  {sortConfig?.direction === "asc" ? (
+                    <LuArrowUp size={14} />
+                  ) : (
+                    <LuArrowDown size={14} />
+                  )}
+                </button>
                 <span>주석 내용</span>
                 <span>공개 여부</span>
                 <span>추가 동작</span>
@@ -43,10 +95,10 @@ export default function AnnotationPage() {
         </div>
         <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
           <div className="flex flex-col justify-between py-2">
-            {annotationDummyData.map((item) => (
+            {sortedData.map((item) => (
               <div
                 key={item.id}
-                className="grid grid-cols-[95px_123px_180px_1fr_127px_20px] text-[14px] mx-5 my-2"
+                className="grid grid-cols-[90px_160px_90px_440px_100px_140px] place-items-center text-[14px] my-3"
               >
                 <span>{item.name}</span>
                 <span className="text-[#5FB995]">{item.location}</span>

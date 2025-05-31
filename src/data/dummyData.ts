@@ -67,9 +67,15 @@ export const annotationDummyData = [
   {
     id: 2,
     name: "테스트 주석",
-    location: "타락파워천사",
-    correction: "2025/05/22",
-    content:
-      "창세기 3장 1절에서 뱀을 지칭하는 히브리 단어는 '나하쉬(נָחָשׁ)'입니다.",
+    location: "르클레르",
+    correction: "2025/05/23",
+    content: "F1 드라이버 샤를 르클레르는 스쿠데리아 페라리팀 소속입니다.",
+  },
+  {
+    id: 3,
+    name: "주석 테스트",
+    location: "루이스 해밀턴",
+    correction: "2025/04/25",
+    content: "F1 드라이버 루이스 해밀턴은 페라리팀 소속입니다.",
   },
 ];
