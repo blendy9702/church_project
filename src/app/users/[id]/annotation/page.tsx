@@ -3,36 +3,56 @@
 import { Switch } from "@/components/ui/switch";
 import { annotationDummyData } from "@/data/dummyData";
 import Image from "next/image";
+import { useState } from "react";
 import { LuTrash2 } from "react-icons/lu";
 import { SlNote } from "react-icons/sl";
-import { useState } from "react";
-import { LuArrowDown, LuArrowUp } from "react-icons/lu";
+import { TiArrowUnsorted } from "react-icons/ti";
 
 export default function AnnotationPage() {
-  const [sortConfig, setSortConfig] = useState<{
-    key: "name" | "correction";
-    direction: "asc" | "desc";
-  } | null>(null);
+  const [nameSort, setNameSort] = useState<"asc" | "desc">("asc");
+  const [correctionSort, setCorrectionSort] = useState<"asc" | "desc">("asc");
+  const [activeSort, setActiveSort] = useState<"name" | "correction" | null>(
+    null
+  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState("");
 
   const handleSort = (key: "name" | "correction") => {
-    let direction: "asc" | "desc" = "asc";
-    if (
-      sortConfig &&
-      sortConfig.key === key &&
-      sortConfig.direction === "asc"
-    ) {
-      direction = "desc";
+    setActiveSort(key);
+    if (key === "name") {
+      setNameSort(nameSort === "asc" ? "desc" : "asc");
+    } else {
+      setCorrectionSort(correctionSort === "asc" ? "desc" : "asc");
     }
-    setSortConfig({ key, direction });
   };
 
-  const sortedData = [...annotationDummyData].sort((a, b) => {
-    if (!sortConfig) return 0;
-    if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === "asc" ? -1 : 1;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setAppliedSearchTerm(searchTerm);
     }
-    if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === "asc" ? 1 : -1;
+  };
+
+  const filteredData = [...annotationDummyData].filter((item) => {
+    const term = appliedSearchTerm.toLowerCase();
+    return (
+      item.name.toLowerCase().includes(term) ||
+      item.content.toLowerCase().includes(term)
+    );
+  });
+
+  const sortedData = filteredData.sort((a, b) => {
+    if (activeSort === "name") {
+      return nameSort === "asc"
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
+    } else if (activeSort === "correction") {
+      return correctionSort === "asc"
+        ? a.correction.localeCompare(b.correction)
+        : b.correction.localeCompare(a.correction);
     }
     return 0;
   });
@@ -53,6 +73,9 @@ export default function AnnotationPage() {
                 type="text"
                 placeholder="주석 이름, 내용 검색"
                 className="h-[34px] w-[350px] rounded-[10px] border-1 border-[#E5E5E5] pl-4 pr-[40px] placeholder:text-[#979797] hover:border-[#A0A0A0] focus:outline-none"
+                value={searchTerm}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
               />
               <div className="absolute p-1 left-[315px] top-[2px] cursor-pointer">
                 <Image
@@ -68,11 +91,7 @@ export default function AnnotationPage() {
                   onClick={() => handleSort("name")}
                 >
                   주석 이름
-                  {sortConfig?.direction === "asc" ? (
-                    <LuArrowUp size={14} />
-                  ) : (
-                    <LuArrowDown size={14} />
-                  )}
+                  <TiArrowUnsorted size={16} className="text-[#8D8D8D]" />
                 </button>
                 <span>주석 위치</span>
                 <button
@@ -80,11 +99,7 @@ export default function AnnotationPage() {
                   onClick={() => handleSort("correction")}
                 >
                   최종 수정일
-                  {sortConfig?.direction === "asc" ? (
-                    <LuArrowUp size={14} />
-                  ) : (
-                    <LuArrowDown size={14} />
-                  )}
+                  <TiArrowUnsorted size={16} className="text-[#8D8D8D]" />
                 </button>
                 <span>주석 내용</span>
                 <span>공개 여부</span>
