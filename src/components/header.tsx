@@ -68,11 +68,14 @@ export default function Header() {
                     <div className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]">
                       <button className="cursor-pointer w-full">_id_</button>
                     </div>
-                    <div className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]">
+                    <Link
+                      href={`/users/${userId}/article`}
+                      className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]"
+                    >
                       <button className="cursor-pointer w-full">
                         아티클 관리
                       </button>
-                    </div>
+                    </Link>
                     <Link
                       href={`/users/${userId}/annotation`}
                       className="flex items-center justify-between py-2 w-full hover:bg-[#F5F5F5]"
