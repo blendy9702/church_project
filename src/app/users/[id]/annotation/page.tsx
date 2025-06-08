@@ -66,7 +66,7 @@ export default function AnnotationPage() {
             확인
           </button>
         </div>
-        <div className="flex flex-col bg-[#F5F5F5] mt-8">
+        <div className="flex flex-col bg-[#ffffff] mt-8">
           <div className="mx-auto w-[1000px]">
             <div className="relative flex flex-col gap-5 my-3">
               <input
@@ -108,7 +108,7 @@ export default function AnnotationPage() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col bg-[#F5F5F5] mt-[2px] px-[100px]">
+        <div className="flex flex-col bg-[#ffffff] mt-[2px] px-[100px]">
           <div className="flex flex-col justify-between py-2">
             {sortedData.map((item) => (
               <div
