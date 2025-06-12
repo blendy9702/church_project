@@ -79,3 +79,16 @@ export const annotationDummyData = [
     content: "F1 드라이버 루이스 해밀턴은 페라리팀 소속입니다.",
   },
 ];
+
+export const majorCategory = [
+  {
+    id: 1,
+    title: "시작과 약속",
+  }
+]
+
+export const minorCategory = [
+  {
+    
+  }
+]
