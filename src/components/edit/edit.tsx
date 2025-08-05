@@ -4,7 +4,11 @@ import { majorCategory, minorCategory, subCategory } from "@/data/dummyData";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
-export function Edit1() {
+interface Edit1Props {
+  onSubCategoryAdd?: () => void;
+}
+
+export function Edit1({ onSubCategoryAdd }: Edit1Props) {
   const [selectedMajor, setSelectedMajor] = useState<number | null>(null);
   const [selectedMinor, setSelectedMinor] = useState<number | null>(null);
   const [selectedSub, setSelectedSub] = useState<number | null>(null);
@@ -155,7 +159,10 @@ export function Edit1() {
               <span className="text-[24px] font-[700] text-[#000000]">
                 소분류
               </span>
-              <button className="w-[38px] h-[27px] bg-[#5FB995] rounded-full flex items-center justify-center cursor-pointer">
+              <button
+                onClick={onSubCategoryAdd}
+                className="w-[38px] h-[27px] bg-[#5FB995] rounded-full flex items-center justify-center cursor-pointer"
+              >
                 <FaPlus className="text-[#FFFFFF] text-[14px]" />
               </button>
             </div>
