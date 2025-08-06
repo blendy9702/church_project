@@ -82,7 +82,7 @@ export function WriteEdit() {
             editor.isActive("bold") ? "bg-gray-200" : ""
           }`}
         >
-          <FaBold className="text-[20px] text-[#FFFFFF]" />
+          <FaBold className="text-[20px] text-[#000000]" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
