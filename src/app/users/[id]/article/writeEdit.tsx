@@ -1,13 +1,14 @@
 "use client";
 
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
+import { Extension } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import { TextStyle } from "@tiptap/extension-text-style";
-import { Extension } from "@tiptap/core";
-import { FaBold } from "react-icons/fa6";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import { useState } from "react";
+import { FaItalic } from "react-icons/fa6";
+import { MdFormatBold } from "react-icons/md";
 
 export function WriteEdit() {
   const [fontSize, setFontSize] = useState("16");
@@ -74,31 +75,23 @@ export function WriteEdit() {
   }
 
   return (
-    <div className="w-full max-w-[800px] mx-auto p-4 border rounded-lg border-[#D6D6D6] shadow-sm">
-      <div className="flex gap-2 mb-4 items-center bg-[#2D2B2E]">
+    <div className="w-full max-w-[800px] mx-auto border rounded-[10px] border-[#D6D6D6] shadow-sm">
+      <div className="flex gap-1 py-1 mb-4 items-center bg-[#2D2B2E] border rounded-t-[10px] rounded-b-none">
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-2 rounded text-[#ffffff] ${
+          className={`p-1 rounded text-[#ffffff] ${
             editor.isActive("bold") ? "bg-gray-200" : ""
           }`}
         >
-          <FaBold className="text-[20px] text-[#ffffff]" />
+          <MdFormatBold className="text-[20px] text-[#ffffff]" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded text-[#ffffff] ${
+          className={`p-1 rounded text-[#ffffff] ${
             editor.isActive("italic") ? "bg-gray-200" : ""
           }`}
         >
-          기울임
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-2 rounded text-[#ffffff] ${
-            editor.isActive("bulletList") ? "bg-gray-200" : ""
-          }`}
-        >
-          목록
+          <FaItalic className="text-[15px] text-[#ffffff]" />
         </button>
         <div className="flex items-center gap-2 ml-4">
           <label className="text-sm font-medium text-[#ffffff]">
@@ -107,7 +100,7 @@ export function WriteEdit() {
           <select
             value={fontSize}
             onChange={(e) => handleFontSizeChange(e.target.value)}
-            className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="text-[#ffffff] px-3 py-1 text-sm focus:outline-none"
           >
             <option value="12">12px</option>
             <option value="14">14px</option>
