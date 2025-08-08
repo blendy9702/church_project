@@ -78,15 +78,15 @@ export function WriteEdit() {
       <div className="flex gap-2 mb-4 items-center bg-[#2D2B2E]">
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-2 rounded ${
+          className={`p-2 rounded text-[#ffffff] ${
             editor.isActive("bold") ? "bg-gray-200" : ""
           }`}
         >
-          <FaBold className="text-[20px] text-[#000000]" />
+          <FaBold className="text-[20px] text-[#ffffff]" />
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-2 rounded ${
+          className={`p-2 rounded text-[#ffffff] ${
             editor.isActive("italic") ? "bg-gray-200" : ""
           }`}
         >
@@ -94,14 +94,14 @@ export function WriteEdit() {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-2 rounded ${
+          className={`p-2 rounded text-[#ffffff] ${
             editor.isActive("bulletList") ? "bg-gray-200" : ""
           }`}
         >
           목록
         </button>
         <div className="flex items-center gap-2 ml-4">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-[#ffffff]">
             폰트 크기:
           </label>
           <select
