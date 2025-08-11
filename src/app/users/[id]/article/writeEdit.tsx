@@ -11,6 +11,7 @@ import { useState } from "react";
 import { BsTypeUnderline } from "react-icons/bs";
 import { FaItalic } from "react-icons/fa6";
 import { HiMiniBold } from "react-icons/hi2";
+import { MdFormatListNumbered, MdFormatListBulleted } from "react-icons/md";
 
 export function WriteEdit() {
   const [fontSize, setFontSize] = useState("16");
@@ -102,7 +103,7 @@ export function WriteEdit() {
         <div className="bg-[#D6D6D6] w-[1px] h-[40px]"></div>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-1 rounded text-[#ffffff] ${
+          className={`p-1 rounded text-[#ffffff] cursor-pointer ${
             editor.isActive("bold") ? "bg-gray-200" : ""
           }`}
         >
@@ -110,7 +111,7 @@ export function WriteEdit() {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-1 rounded text-[#ffffff] ${
+          className={`p-1 rounded text-[#ffffff] cursor-pointer ${
             editor.isActive("italic") ? "bg-gray-200" : ""
           }`}
         >
@@ -118,11 +119,27 @@ export function WriteEdit() {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={`p-1 rounded text-[#ffffff] ${
+          className={`p-1 rounded text-[#ffffff] cursor-pointer ${
             editor.isActive("underline") ? "bg-gray-200" : ""
           }`}
         >
           <BsTypeUnderline className="text-[18px] text-[#ffffff]" />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleOrderedList().run()}
+          className={`p-1 rounded text-[#ffffff] cursor-pointer ${
+            editor.isActive("orderedList") ? "bg-gray-200" : ""
+          }`}
+        >
+          <MdFormatListNumbered className="text-[20px] text-[#ffffff]" />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleBulletList().run()}
+          className={`p-1 rounded text-[#ffffff] cursor-pointer ${
+            editor.isActive("bulletList") ? "bg-gray-200" : ""
+          }`}
+        >
+          <MdFormatListBulleted className="text-[20px] text-[#ffffff]" />
         </button>
       </div>
       <EditorContent
