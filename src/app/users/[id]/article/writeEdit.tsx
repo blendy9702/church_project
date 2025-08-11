@@ -4,11 +4,13 @@ import { Extension } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import { TextStyle } from "@tiptap/extension-text-style";
+import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useState } from "react";
+import { BsTypeUnderline } from "react-icons/bs";
 import { FaItalic } from "react-icons/fa6";
-import { MdFormatBold } from "react-icons/md";
+import { HiMiniBold } from "react-icons/hi2";
 
 export function WriteEdit() {
   const [fontSize, setFontSize] = useState("16");
@@ -51,6 +53,7 @@ export function WriteEdit() {
       TextStyle,
       FontSize,
       Image,
+      Underline,
       Link.configure({
         openOnClick: false,
       }),
@@ -75,28 +78,9 @@ export function WriteEdit() {
   }
 
   return (
-    <div className="w-full max-w-[800px] mx-auto border rounded-[10px] border-[#D6D6D6] shadow-sm">
-      <div className="flex gap-1 py-1 mb-4 items-center bg-[#2D2B2E] border rounded-t-[10px] rounded-b-none">
-        <button
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-1 rounded text-[#ffffff] ${
-            editor.isActive("bold") ? "bg-gray-200" : ""
-          }`}
-        >
-          <MdFormatBold className="text-[20px] text-[#ffffff]" />
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-1 rounded text-[#ffffff] ${
-            editor.isActive("italic") ? "bg-gray-200" : ""
-          }`}
-        >
-          <FaItalic className="text-[15px] text-[#ffffff]" />
-        </button>
+    <div className="w-full max-w-[1200px] mx-auto border rounded-[10px] border-[#D6D6D6] shadow-sm">
+      <div className="flex gap-3 py-1 mb-4 h-[60px] items-center justify-center bg-[#2D2B2E] border rounded-t-[10px] rounded-b-none">
         <div className="flex items-center gap-2 ml-4">
-          <label className="text-sm font-medium text-[#ffffff]">
-            폰트 크기:
-          </label>
           <select
             value={fontSize}
             onChange={(e) => handleFontSizeChange(e.target.value)}
@@ -115,6 +99,31 @@ export function WriteEdit() {
             <option value="48">48px</option>
           </select>
         </div>
+        <div className="bg-[#D6D6D6] w-[1px] h-[40px]"></div>
+        <button
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          className={`p-1 rounded text-[#ffffff] ${
+            editor.isActive("bold") ? "bg-gray-200" : ""
+          }`}
+        >
+          <HiMiniBold className="text-[18px] text-[#ffffff]" />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+          className={`p-1 rounded text-[#ffffff] ${
+            editor.isActive("italic") ? "bg-gray-200" : ""
+          }`}
+        >
+          <FaItalic className="text-[15px] text-[#ffffff]" />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
+          className={`p-1 rounded text-[#ffffff] ${
+            editor.isActive("underline") ? "bg-gray-200" : ""
+          }`}
+        >
+          <BsTypeUnderline className="text-[18px] text-[#ffffff]" />
+        </button>
       </div>
       <EditorContent
         editor={editor}
